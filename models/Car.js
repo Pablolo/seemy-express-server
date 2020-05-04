@@ -7,7 +7,7 @@ const carSchema = new Schema(
 		location: { type: String, required: false }, // City, Street Address, State / Region /Province, Zip /Postal Code
 		model: { type: String, required: true }, // Year, Make, Model, Odometer
 		transmission: { type: String, required: true }, // Manual, Automatic
-		image: { type: String, required: true }, 
+		image: { type: String, required: true },
 	},
 	{
 		timestamps: {
