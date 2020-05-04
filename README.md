@@ -66,10 +66,12 @@ Book a car: - all the steps to actually book it
 
 ### Backlog
 
-| Method | Path              | Description    | Body                     |
-| :----: | ----------------  | -------------- | ------------------------ |
-|  GET   | `/cars/:id/book`  | book a car     |                          |
-|  POST  | `/cars/:id/book`  | book a car     |                          |
+| Method | Path              | Description          | Body                     |
+| :----: | ----------------  | -------------------  | ------------------------ |
+|  GET   | `/cars/:id/book`  | book a car           |                          |
+|  POST  | `/cars/:id/book`  | book a car           |                          |
+|  GET   | `/driver/:id`     | see driver profile   |                          |
+|  POST  | `/driver/:id`     | edit driver profile  |                          |
 
 ## Models
 
