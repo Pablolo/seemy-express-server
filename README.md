@@ -93,12 +93,11 @@ Car model
 
 ### Git
 
-The url to your repository and to your deployed project
-
 [Github Repo - Server API](https://github.com/Pablolo/seemy-express-server)
 
 [Github Repo - React Client](https://github.com/Pablolo/seemy-react-client)
 
+### Deploy
 
 [Deploy Link](http://heroku.com/)
 
