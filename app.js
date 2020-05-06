@@ -12,29 +12,28 @@ require('dotenv').config();
 const dbPath = process.env.MONGODB_URI;
 
 mongoose
-	.connect(dbPath, {
-		useCreateIndex: true,
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
-	.then(() => {
-		console.log(`conected to ${dbPath}`);
-	})
-	.catch(error => {
-		console.error(error);
-	});
+  .connect(dbPath, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log(`conected to ${dbPath}`);
+  })
+  .catch(error => {
+    console.error(error);
+  });
 
 const authRouter = require('./routes/auth');
 const indexRouter = require('./routes/index'); // only auth router?
-const usersRouter = require('./routes/users');
 
 const app = express();
 
 app.use(
-	cors({
-		credentials: true,
-		origin: [process.env.FRONTEND_DOMAIN],
-	})
+  cors({
+    credentials: true,
+    origin: [process.env.FRONTEND_DOMAIN],
+  })
 );
 
 app.use(logger('dev'));
@@ -44,38 +43,37 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(
-	session({
-		store: new MongoStore({
-			mongooseConnection: mongoose.connection,
-			ttl: 24 * 60 * 60, // 1 day
-		}),
-		secret: process.env.SECRET_SESSION,
-		resave: true,
-		saveUninitialized: true,
-		name: 'seemy',
-		cookie: {
-			maxAge: 24 * 60 * 60 * 1000,
-		},
-	})
+  session({
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60, // 1 day
+    }),
+    secret: process.env.SECRET_SESSION,
+    resave: true,
+    saveUninitialized: true,
+    name: 'seemy',
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000,
+    },
+  })
 );
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-	res.status(404).json({ code: 'not found' });
+  res.status(404).json({ code: 'not found' });
 });
 
 // error handler
 app.use((err, req, res, next) => {
-	// always log the error
-	console.log('ERROR', req.method, req.path, err);
+  // always log the error
+  console.log('ERROR', req.method, req.path, err);
 
-	// only render if the error ocurred before sending the response
-	if (!res.headersSent) {
-		res.status(500).json({ code: 'unexpected', error: err });
-	}
+  // only render if the error ocurred before sending the response
+  if (!res.headersSent) {
+    res.status(500).json({ code: 'unexpected', error: err });
+  }
 });
 
 module.exports = app;
