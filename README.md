@@ -42,8 +42,46 @@ User model
 
 ```javascript
 {
-	email: String;
-	password: String;
+	firstName: String,
+	lastName: String,
+	email: String,
+	password: String,
+	profilePhoto: String,
+	mobileNumber: Number,
+}
+```
+
+Car model
+
+```javascript
+{
+	location: {
+		streetAdress: String,
+		province: String,
+		postalCode: Number,
+	}
+	carSpecs: {
+		year: Number,
+		make: String,
+		model: String,
+		odometer: Number,
+	}
+	transmission: String;
+	availability: {
+		advanceNotice: Number,
+		maxDuration: Number,
+	}
+	image: String,
+	description: String,
+	licensePlate: String,
+	dailyPrice: Number,
+	userId: ObjectId<User>,
+	deleted: DateTime,
+	review: {
+		content: String,
+		rating: Number (1-5),
+		userid: ObjectId<User>,
+	}
 }
 ```
 
@@ -51,7 +89,7 @@ User model
 
 ### Trello
 
-[Seemy Trello](https://trello.com/b/gNnluUYp/ironhack-module3-project)
+[Seemy Trello](https://trello.com/b/gNnluUYp/seemy-ironhack)
 
 ### Git
 
