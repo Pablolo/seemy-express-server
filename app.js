@@ -24,8 +24,8 @@ mongoose
     console.error(error);
   });
 
+const demoRouter = require('./routes/demo');
 const authRouter = require('./routes/auth');
-const indexRouter = require('./routes/index'); // only auth router?
 
 const app = express();
 
@@ -35,13 +35,11 @@ app.use(
     origin: [process.env.FRONTEND_DOMAIN],
   })
 );
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(
   session({
     store: new MongoStore({
@@ -58,7 +56,8 @@ app.use(
   })
 );
 
-app.use('/', indexRouter);
+app.use('/', authRouter);
+app.use('/protected', demoRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

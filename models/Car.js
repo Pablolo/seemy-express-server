@@ -24,12 +24,14 @@ const carSchema = new Schema(
     description: { type: String, required: true },
     licensePlate: { type: String, required: true },
     dailyPrice: { type: Number, required: true },
-    userId: { type: Schema.Types.ObjectId, ref: 'User' },
-    review: {
-      content: { type: String, required: true },
-      rating: { type: Number, min: 1, max: 5, required: true },
-      userid: { type: Schema.Types.ObjectId, ref: 'User' }, // not sure if this is right
-    },
+    owner: { type: Schema.Types.ObjectId, ref: 'User' },
+    review: [
+      {
+        content: { type: String, required: true },
+        rating: { type: Number, min: 1, max: 5, required: true },
+        publisher: { type: Schema.Types.ObjectId, ref: 'User' },
+      },
+    ],
   },
   {
     timestamps: {

@@ -10,13 +10,15 @@ Seemy is a platform that puts in contact people who has sports & luxury cars wit
 
 ## Endpoints
 
-| Method | Path           | Description      | Body                            |
-| :----: | -------------- | ---------------- | ------------------------------- |
-|  GET   | `/cars`        | list all cars    |                                 |
-|  POST  | `/cars`        | add a car        |                                 |
-|  GET   | `/cars/:id`    | get a car        |                                 |
-|  PUT   | `/cars/:id`    | update a car     |                                 |
-| DELETE | `/cars/:id`    | delete a car     |                                 |
+| Method | Path           | Description         | Body                            |
+| :----: | -------------- | ------------------- | ------------------------------- |
+|  GET   | `/cars`        | list all cars       |                                 |
+|  POST  | `/cars`        | add a car           |                                 |
+|  GET   | `/cars/:id`    | get a car           |                                 |
+|  PUT   | `/cars/:id`    | update a car        |                                 |
+| DELETE | `/cars/:id`    | delete a car        |                                 |
+|  GET   | `/driver/:id`  | see driver profile  |                                 |
+|  PUT   | `/driver/:id`  | edit driver profile |                                 |
 
 ## Auth
 
@@ -33,8 +35,7 @@ Seemy is a platform that puts in contact people who has sports & luxury cars wit
 | :----: | ----------------  | -------------------  | ------------------------ |
 |  GET   | `/cars/:id/book`  | book a car           |                          |
 |  POST  | `/cars/:id/book`  | book a car           |                          |
-|  GET   | `/driver/:id`     | see driver profile   |                          |
-|  POST  | `/driver/:id`     | edit driver profile  |                          |
+
 
 ## Models
 
