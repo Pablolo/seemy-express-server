@@ -24,8 +24,8 @@ mongoose
     console.error(error);
   });
 
-const demoRouter = require('./routes/demo');
 const authRouter = require('./routes/auth');
+const demoRouter = require('./routes/demo');
 
 const app = express();
 

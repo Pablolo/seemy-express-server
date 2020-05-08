@@ -77,12 +77,18 @@ Car model
 	licensePlate: String,
 	dailyPrice: Number,
 	userId: ObjectId<User>,
-	deleted: DateTime,
-	review: {
-		content: String,
-		rating: Number (1-5),
-		userid: ObjectId<User>,
-	}
+	review: reviewSchema,
+}
+```
+
+Review model
+
+```javascript
+{
+	carId: ObjectId<Car>,
+	content: String,
+	rating: Number,
+	publisherId: ObjectId<User>,
 }
 ```
 
