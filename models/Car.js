@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const reviewSchema = require('./Review');
 
 const { Schema } = mongoose;
 
@@ -27,7 +26,6 @@ const carSchema = new Schema(
     licensePlate: { type: String, required: true },
     dailyPrice: { type: Number, required: true },
     owner: { type: Schema.Types.ObjectId, ref: 'User' },
-    review: reviewSchema,
   },
   {
     timestamps: {

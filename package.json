@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node ./bin/www",
     "start-dev": "nodemon ./bin/www",
-    "seed": "node ./seeds/seeds.js"
+    "seed-cars": "node ./seeds/seedCars.js",
+    "seed-users": "node ./seeds/seedUsers.js",
+    "seed-reviews": "node ./seeds/seedReviews.js"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
