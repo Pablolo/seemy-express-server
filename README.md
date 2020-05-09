@@ -106,7 +106,9 @@ Review model
 
 ### Deploy
 
-[Deploy Link](http://heroku.com/)
+[Heroku Backend](https://seemy.herokuapp.com/)
+
+[See the App Live on Netlify](https://seemy.netlify.app/)
 
 ### Slides
 

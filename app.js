@@ -9,6 +9,10 @@ const cors = require('cors');
 
 require('dotenv').config();
 
+// Example to insert seeds:
+// const Users = require('./models/User');
+// const seedUsers = require('./seeds/seedUsers');
+
 const dbPath = process.env.MONGODB_URI;
 
 mongoose
@@ -19,6 +23,7 @@ mongoose
   })
   .then(() => {
     console.log(`conected to ${dbPath}`);
+    // return Users.insertMany(seedUsers);
   })
   .catch(error => {
     console.error(error);
