@@ -1,6 +1,6 @@
 const express = require('express');
 
-const Car = require('../models/Car');
+// const Car = require('../models/Car');
 const router = express.Router();
 
 // GET /cars page.
