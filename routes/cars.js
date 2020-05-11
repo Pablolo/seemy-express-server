@@ -75,4 +75,59 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+// PUT /cars/:id
+router.put('/:id', (req, res, next) => {
+  const carToUpdate = req.params.id;
+  const {
+    streetAdress,
+    city,
+    province,
+    postalCode,
+    year,
+    make,
+    model,
+    odometer,
+    advanceNoticeHours,
+    maxDurationDays,
+    transmission,
+    image,
+    description,
+    licensePlate,
+    dailyPrice,
+    owner,
+  } = req.body;
+  Car.findByIdAndUpdate(carToUpdate, {
+    location: {
+      streetAdress,
+      city,
+      province,
+      postalCode,
+    },
+    carSpecs: {
+      year,
+      make,
+      model,
+      odometer,
+    },
+    availability: {
+      advanceNoticeHours,
+      maxDurationDays,
+    },
+    transmission,
+    image,
+    description,
+    licensePlate,
+    dailyPrice,
+    owner,
+  })
+    .then(updatedCar => {
+      if (updatedCar) {
+        res.status(200).json(updatedCar);
+      } else {
+        res.status(204).json('Car not found');
+      }
+    })
+    .catch(next);
+});
+
 module.exports = router;

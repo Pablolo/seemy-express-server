@@ -11,6 +11,8 @@ require('dotenv').config();
 
 const dbPath = process.env.MONGODB_URI;
 
+mongoose.set('useFindAndModify', false);
+
 mongoose
   .connect(dbPath, {
     useCreateIndex: true,
