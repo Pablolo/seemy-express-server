@@ -16,7 +16,6 @@ router.get('/', async (req, res, next) => {
 
 // POST /cars to publish a new car
 router.post('/', (req, res, next) => {
-  console.log('body', req.body);
   const {
     streetAdress,
     city,
@@ -126,6 +125,15 @@ router.put('/:id', (req, res, next) => {
       } else {
         res.status(204).json('Car not found');
       }
+    })
+    .catch(next);
+});
+
+// DELETE /cars/:id page
+router.delete('/:id', (req, res, next) => {
+  Car.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.json({ message: `Car with ID ${req.params.id} removed successfully.` });
     })
     .catch(next);
 });
