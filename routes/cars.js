@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
 
 // POST /cars to publish a new car
 router.post('/', (req, res, next) => {
-  console.log('bodyyyyy', req.body);
+  console.log('body', req.body);
   const {
     streetAdress,
     city,
@@ -63,6 +63,16 @@ router.post('/', (req, res, next) => {
       res.status(201).json(newCar);
     })
     .catch(next);
+});
+
+// GET /cars/:id page
+router.get('/:id', async (req, res, next) => {
+  try {
+    const car = await Car.findById(req.params.id);
+    return res.status(200).json(car);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
