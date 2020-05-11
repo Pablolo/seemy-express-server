@@ -13,7 +13,7 @@ router.get('/whoami', (req, res, next) => {
   if (req.session.currentUser) {
     res.status(200).json(req.session.currentUser);
   } else {
-    req.status(401).json({ code: 'unauthorized' });
+    res.status(401).json({ code: 'unauthorized' });
   }
 });
 

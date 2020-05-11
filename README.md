@@ -46,7 +46,7 @@ User model
 	firstName: String,
 	lastName: String,
 	email: String,
-	password: String,
+	hashedPassword: String,
 	profilePhoto: String,
 	mobileNumber: Number,
 }
@@ -58,6 +58,7 @@ Car model
 {
 	location: {
 		streetAdress: String,
+		city: String,
 		province: String,
 		postalCode: Number,
 	}
@@ -69,15 +70,14 @@ Car model
 	}
 	transmission: String;
 	availability: {
-		advanceNotice: Number,
-		maxDuration: Number,
+		advanceNoticeHours: Number,
+		maxDurationDays: Number,
 	}
 	image: String,
 	description: String,
 	licensePlate: String,
 	dailyPrice: Number,
-	userId: ObjectId<User>,
-	review: reviewSchema,
+	owner: ObjectId<User>,
 }
 ```
 
@@ -108,7 +108,7 @@ Review model
 
 [Heroku Backend](https://seemy.herokuapp.com/)
 
-[See the App Live on Netlify](https://seemy.netlify.app/)
+[See the App Live on Netlify!](https://seemy.netlify.app/)
 
 ### Slides
 
