@@ -16,9 +16,9 @@ router.get('/:id', async (req, res, next) => {
 
 // PUT /driver/:id
 router.put('/:id', (req, res, next) => {
-  const driverToUpdate = req.params.id;
+  const driverId = req.params.id;
   const { firstName, lastName, email, profilePhoto, mobileNumber } = req.body;
-  Driver.findByIdAndUpdate(driverToUpdate, {
+  Driver.findByIdAndUpdate(driverId, {
     firstName,
     lastName,
     email,
@@ -29,7 +29,7 @@ router.put('/:id', (req, res, next) => {
       if (updatedDriver) {
         res.status(200).json(updatedDriver);
       } else {
-        res.status(204).json('Car not found');
+        res.status(404).json('Driver not found');
       }
     })
     .catch(next);

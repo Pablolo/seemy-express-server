@@ -1,6 +1,7 @@
 const express = require('express');
 
 const Car = require('../models/Car');
+const { createNewCar, updateCar } = require('../helpers/createAndUpdateCar');
 
 const router = express.Router();
 
@@ -16,48 +17,7 @@ router.get('/', async (req, res, next) => {
 
 // POST /cars to publish a new car
 router.post('/', (req, res, next) => {
-  const {
-    streetAdress,
-    city,
-    province,
-    postalCode,
-    year,
-    make,
-    model,
-    odometer,
-    advanceNoticeHours,
-    maxDurationDays,
-    transmission,
-    image,
-    description,
-    licensePlate,
-    dailyPrice,
-    owner,
-  } = req.body;
-  Car.create({
-    location: {
-      streetAdress,
-      city,
-      province,
-      postalCode,
-    },
-    carSpecs: {
-      year,
-      make,
-      model,
-      odometer,
-    },
-    availability: {
-      advanceNoticeHours,
-      maxDurationDays,
-    },
-    transmission,
-    image,
-    description,
-    licensePlate,
-    dailyPrice,
-    owner,
-  })
+  createNewCar(req)
     .then(newCar => {
       res.status(201).json(newCar);
     })
@@ -76,49 +36,7 @@ router.get('/:id', async (req, res, next) => {
 
 // PUT /cars/:id
 router.put('/:id', (req, res, next) => {
-  const carToUpdate = req.params.id;
-  const {
-    streetAdress,
-    city,
-    province,
-    postalCode,
-    year,
-    make,
-    model,
-    odometer,
-    advanceNoticeHours,
-    maxDurationDays,
-    transmission,
-    image,
-    description,
-    licensePlate,
-    dailyPrice,
-    owner,
-  } = req.body;
-  Car.findByIdAndUpdate(carToUpdate, {
-    location: {
-      streetAdress,
-      city,
-      province,
-      postalCode,
-    },
-    carSpecs: {
-      year,
-      make,
-      model,
-      odometer,
-    },
-    availability: {
-      advanceNoticeHours,
-      maxDurationDays,
-    },
-    transmission,
-    image,
-    description,
-    licensePlate,
-    dailyPrice,
-    owner,
-  })
+  updateCar(req)
     .then(updatedCar => {
       if (updatedCar) {
         res.status(200).json(updatedCar);
