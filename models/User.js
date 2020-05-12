@@ -8,7 +8,7 @@ const userSchema = new Schema(
     lastName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     hashedPassword: { type: String, required: true },
-    profilePhoto: { type: String, required: false },
+    profilePhoto: { type: String, required: false, default: '/images/misc/default-avatar.png' },
     mobileNumber: { type: Number, required: false },
   },
   {
