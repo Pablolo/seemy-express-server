@@ -17,7 +17,7 @@ const cars = [
       model: '430',
       odometer: '23000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '3',
@@ -41,7 +41,7 @@ const cars = [
       model: 'Model S',
       odometer: '41000',
     },
-    transmission: 'Automatic',
+    transmission: 'automatic',
     availability: {
       advanceNoticeHours: '24',
       maxDurationDays: '2',
@@ -65,7 +65,7 @@ const cars = [
       model: 'Cayman',
       odometer: '602000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '1',
@@ -89,7 +89,7 @@ const cars = [
       model: '911',
       odometer: '194000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '24',
       maxDurationDays: '3',
@@ -113,7 +113,7 @@ const cars = [
       model: 'C Class',
       odometer: '50000',
     },
-    transmission: 'Automatic',
+    transmission: 'automatic',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '5',
@@ -137,7 +137,7 @@ const cars = [
       model: '570S',
       odometer: '12000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '24',
       maxDurationDays: '1',
@@ -161,7 +161,7 @@ const cars = [
       model: '570S',
       odometer: '39500',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '2',
@@ -185,7 +185,7 @@ const cars = [
       model: 'Gran Turismo',
       odometer: '137000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '3',
@@ -209,7 +209,7 @@ const cars = [
       model: 'Huracan',
       odometer: '108000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '1',
@@ -233,7 +233,7 @@ const cars = [
       model: 'F Type',
       odometer: '200000',
     },
-    transmission: 'Automatic',
+    transmission: 'automatic',
     availability: {
       advanceNoticeHours: '48',
       maxDurationDays: '4',
@@ -257,7 +257,7 @@ const cars = [
       model: 'E Type',
       odometer: '108000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '24',
       maxDurationDays: '1',
@@ -281,7 +281,7 @@ const cars = [
       model: 'Challenger',
       odometer: '59300',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '2',
@@ -305,7 +305,7 @@ const cars = [
       model: 'Challenger',
       odometer: '72000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '3',
@@ -329,7 +329,7 @@ const cars = [
       model: 'Corvette',
       odometer: '189000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '3',
@@ -353,7 +353,7 @@ const cars = [
       model: 'DeVille',
       odometer: '252000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '24',
       maxDurationDays: '1',
@@ -377,7 +377,7 @@ const cars = [
       model: 'i8',
       odometer: '170000',
     },
-    transmission: 'Automatic',
+    transmission: 'automatic',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '2',
@@ -401,7 +401,7 @@ const cars = [
       model: 'R8',
       odometer: '181000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '24',
       maxDurationDays: '3',
@@ -425,7 +425,7 @@ const cars = [
       model: 'General Humvee',
       odometer: '330000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '48',
       maxDurationDays: '1',
@@ -449,7 +449,7 @@ const cars = [
       model: '4C',
       odometer: '105000',
     },
-    transmission: 'Manual',
+    transmission: 'manual',
     availability: {
       advanceNoticeHours: '12',
       maxDurationDays: '2',
