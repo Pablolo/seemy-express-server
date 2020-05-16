@@ -8,9 +8,9 @@ const router = express.Router();
 // GET /driver/:id page
 router.get('/:id', async (req, res, next) => {
   try {
-    const driver = await Driver.findById(req.params.id);
+    const user = await Driver.findById(req.params.id);
     const publishedCars = await Car.find({ owner: req.params.id });
-    return res.status(200).json(publishedCars);
+    return res.status(200).json({ publishedCars, user });
   } catch (error) {
     next(error);
   }
