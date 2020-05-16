@@ -1,7 +1,7 @@
 const express = require('express');
 
 const Car = require('../models/Car');
-const buildCar = require('../helpers/createAndUpdateCar');
+const { buildCar, destructureCar } = require('../helpers/createAndUpdateCar');
 
 const router = express.Router();
 
@@ -9,7 +9,8 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   try {
     const cars = await Car.find();
-    return res.status(200).json(cars);
+    const carDestructured = destructureCar(cars);
+    return res.status(200).json(carDestructured);
   } catch (error) {
     next(error);
   }

@@ -43,4 +43,43 @@ function buildCar(car) {
   };
 }
 
-module.exports = buildCar;
+function destructureCar(cars) {
+  return cars.map(car => {
+    const {
+      _id,
+      location: { streetAdress, city, province, postalCode },
+      carSpecs: { year, make, model, odometer },
+      availability: { advanceNoticeHours, maxDurationDays },
+      transmission,
+      image,
+      description,
+      licensePlate,
+      dailyPrice,
+      owner,
+    } = car;
+    return {
+      _id,
+      streetAdress,
+      city,
+      province,
+      postalCode,
+      year,
+      make,
+      model,
+      odometer,
+      advanceNoticeHours,
+      maxDurationDays,
+      transmission,
+      image,
+      description,
+      licensePlate,
+      dailyPrice,
+      owner,
+    };
+  });
+}
+
+module.exports = {
+  buildCar,
+  destructureCar,
+};
