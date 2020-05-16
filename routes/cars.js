@@ -1,7 +1,7 @@
 const express = require('express');
 
 const Car = require('../models/Car');
-const { createNewCar, updateCar } = require('../helpers/createAndUpdateCar');
+const buildCar = require('../helpers/createAndUpdateCar');
 
 const router = express.Router();
 
@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
 
 // POST /cars to publish a new car
 router.post('/', (req, res, next) => {
-  createNewCar(req)
+  Car.create(buildCar(req.body))
     .then(newCar => {
       res.status(201).json(newCar);
     })
@@ -36,13 +36,10 @@ router.get('/:id', async (req, res, next) => {
 
 // PUT /cars/:id
 router.put('/:id', (req, res, next) => {
-  updateCar(req)
+  const carId = req.params.id;
+  Car.findByIdAndUpdate(carId, buildCar(req.body))
     .then(updatedCar => {
-      if (updatedCar) {
-        res.status(200).json(updatedCar);
-      } else {
-        res.status(204).json('Car not found');
-      }
+      res.status(200).json(updatedCar);
     })
     .catch(next);
 });
