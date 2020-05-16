@@ -1,7 +1,7 @@
 const express = require('express');
 
 const Car = require('../models/Car');
-const { buildCar, destructureCar } = require('../helpers/createAndUpdateCar');
+const { buildCar, destructureCars, destructureOneCar } = require('../helpers/createAndUpdateCar');
 
 const router = express.Router();
 
@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   try {
     const cars = await Car.find();
-    const carDestructured = destructureCar(cars);
+    const carDestructured = destructureCars(cars);
     return res.status(200).json(carDestructured);
   } catch (error) {
     next(error);
@@ -29,7 +29,8 @@ router.post('/', (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const car = await Car.findById(req.params.id);
-    return res.status(200).json(car);
+    const carDestructured = destructureOneCar(car);
+    return res.status(200).json(carDestructured);
   } catch (error) {
     next(error);
   }
