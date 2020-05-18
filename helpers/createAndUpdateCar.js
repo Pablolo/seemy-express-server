@@ -91,7 +91,7 @@ function destructureOneCar(car) {
     licensePlate,
     dailyPrice,
     owner,
-  } = car;
+  } = car[0];
   return {
     _id,
     streetAdress,
