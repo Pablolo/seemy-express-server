@@ -15,7 +15,7 @@ router.get('/:id', async (req, res, next) => {
     if (publishedCars.length === 0) {
       res.status(200).json({ user });
     } else if (publishedCars.length === 1) {
-      const carDestructured = destructureOneCar(publishedCars);
+      const carDestructured = destructureOneCar(publishedCars.shift());
       res.status(200).json({ carDestructured, user });
     } else {
       const carDestructured = destructureCars(publishedCars);
