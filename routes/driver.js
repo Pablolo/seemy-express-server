@@ -18,7 +18,7 @@ router.get('/:id', async (req, res, next) => {
       const carDestructured = destructureOneCar(publishedCars.shift());
       res.status(200).json({ carDestructured, user });
     } else {
-      const carDestructured = destructureCars(publishedCars);
+      const carDestructured = destructureCars(publishedCars);   
       res.status(200).json({ carDestructured, user });
     }
   } catch (error) {
