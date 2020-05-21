@@ -22,7 +22,7 @@ router.post('/signup', checkEmailAndPasswordNotEmpty, async (req, res, next) => 
   try {
     const user = await User.findOne({ email });
     if (user) {
-      return res.status(422).json({ code: 'email-already-registered' });
+      return res.status(422).json({ code: 'This email is already registered' });
     }
 
     const salt = bcrypt.genSaltSync(bcryptSalt);
