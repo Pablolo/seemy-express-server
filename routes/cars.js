@@ -1,6 +1,7 @@
 const express = require('express');
-
+const { check, validationResult } = require('express-validator');
 const Car = require('../models/Car');
+
 const { buildCar, destructureCars, destructureOneCar } = require('../helpers/createAndUpdateCar');
 
 const router = express.Router();
@@ -17,13 +18,38 @@ router.get('/', async (req, res, next) => {
 });
 
 // POST /cars to publish a new car
-router.post('/', (req, res, next) => {
-  Car.create(buildCar(req.body))
-    .then(newCar => {
-      res.status(201).json(newCar);
-    })
-    .catch(next);
-});
+router.post(
+  '/',
+  [
+    check('streetAdress', 'Your Adress is not valid')
+      .not()
+      .isEmpty(),
+    check('postalCode', 'Your ZIP code is not valid').isNumeric(),
+    check('city')
+      .not()
+      .isEmpty(),
+    check('province')
+      .not()
+      .isEmpty(),
+    check('make')
+      .not()
+      .isEmpty(),
+    check('model')
+      .not()
+      .isEmpty(),
+    check('year', 'Add a valid year').isNumeric(),
+    check('city')
+      .not()
+      .isEmpty(),
+  ],
+  (req, res, next) => {
+    Car.create(buildCar(req.body))
+      .then(newCar => {
+        res.status(201).json(newCar);
+      })
+      .catch(next);
+  }
+);
 
 // GET /cars/:id page
 router.get('/:id', async (req, res, next) => {

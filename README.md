@@ -112,4 +112,4 @@ Review model
 
 ### Slides
 
-[Slides Link](http://slides.com/)
+[Slides Link](https://docs.google.com/presentation/d/1ObNk9DjLsHOZoJXh-yFEwvvMG1NtIPOso9FP3NaXWt4/edit?usp=sharing)

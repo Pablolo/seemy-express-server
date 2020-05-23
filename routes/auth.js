@@ -24,8 +24,12 @@ router.post(
       .isEmail()
       .normalizeEmail(),
     check('password').isLength({ min: 8 }),
-    check('firstName').isLength({ min: 1 }),
-    check('lastName').isLength({ min: 1 }),
+    check('firstName')
+      .not()
+      .isEmpty(),
+    check('lastName')
+      .not()
+      .isEmpty(),
   ],
   async (req, res, next) => {
     const { firstName, lastName, email, password } = req.body;
@@ -58,7 +62,7 @@ router.post(
     check('email')
       .isEmail()
       .normalizeEmail(),
-    // check('password').isLength({ min: 8 }),
+    check('password').isLength({ min: 4 }),
   ],
   async (req, res, next) => {
     const { email, password } = req.body;
