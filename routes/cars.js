@@ -28,21 +28,35 @@ router.post(
     check('city')
       .not()
       .isEmpty(),
-    check('province')
+    check('province', 'Add the Province where the car is located')
       .not()
       .isEmpty(),
-    check('make')
+    check('make', 'Add the Brand of the Car')
       .not()
       .isEmpty(),
-    check('model')
+    check('model', 'Add the model of the Car')
       .not()
       .isEmpty(),
     check('year', 'Add a valid year').isNumeric(),
-    check('city')
+    check('odometer', 'Add the kms of your car').isNumeric(),
+    check('licensePlate', 'Not a valid License Plate')
+      .not()
+      .isEmpty(),
+    check('image', 'Add an image URL')
+      .not()
+      .isEmpty(),
+    check('advanceNoticeHours', 'How many hours in advance should someone book your car').isNumeric(),
+    check('maxDurationDays', 'How many days is the maximum duration of the rent').isNumeric(),
+    check('dailyPrice', 'Add a daily rent price for your car').isNumeric(),
+    check('description', 'Add a description of your car')
       .not()
       .isEmpty(),
   ],
   (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
     Car.create(buildCar(req.body))
       .then(newCar => {
         res.status(201).json(newCar);
